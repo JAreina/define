@@ -1,0 +1,86 @@
+.container{
+    font-family: 'Anton', sans-serif;
+    
+}
+input {
+    text-align: center;
+}
+.caja input{
+    border:none;
+    background-color:transparent;
+    font-size: 4em;
+ 
+    width: 100%;
+}
+.define{
+    font-size: 2em;
+     padding:2%;
+     
+     color:#006f8a;
+}
+.condiciones{
+    padding:10px;
+    text-align: center;
+    font-size: 1.4em;
+    color:whitesmoke;
+}
+
+
+.tuDefines{
+    
+    height: 100px;
+    box-sizing: border-box;
+
+}
+.tuDefinicionInput input{
+    width:100%;
+    border:none;
+    background-color: transparent;
+   border-bottom: 1px dotted #006f8a;
+   margin-top:2%;
+   
+}
+
+.botonDefinicion{
+
+   margin-top:3%;
+   color:#006f8a;
+}
+.botonDefinicion input:disabled{
+    color:tomato;
+}
+
+.tiempo{
+ margin-top:15px;
+    box-sizing: border-box;
+}
+
+
+
+.coincidencias{
+    background-color:gold;
+
+}
+.botonCoincidencias{
+    margin-bottom: 20px;
+}
+.tuRespuesta,.miRespuesta{
+    
+    box-sizing: border-box;
+}
+@media (max-width:480px){
+    .define,.condiciones span{
+        text-align: center;
+    }
+    
+}
+@media (max-width:800px){
+    .define,.condiciones span{
+        text-align: center;
+    }
+}
+@media (max-width:981px){
+    .define,.condiciones span{
+        text-align: center;
+    }
+}

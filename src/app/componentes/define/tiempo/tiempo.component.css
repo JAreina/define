@@ -1,0 +1,11 @@
+.container-fluid{
+    color: rgba(223, 62, 13, 0.81);
+}
+h1,p{
+    color: rgba(223, 62, 13, 0.81);
+    padding:1%;
+    
+}
+.botonPadre{
+    margin:10px;
+}

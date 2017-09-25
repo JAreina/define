@@ -1,0 +1,123 @@
+
+<div class="container"  >
+      
+        <div class="row">
+                <div class="col-md-12 col-xs-12 condiciones">
+                   <span class="col-md-6 col-xs-12 text-right">En {{caracteres}} carácteres.</span>
+                   <span class="col-md-6 col-xs-12 text-left"> En {{caracteres/ 3 | quitarDecimales}} segundos.</span>
+       
+                </div>
+               </div>
+     <div class="row">
+    
+         <div class="col-md-12 col-xs-12 ">
+              <div class="define col-md-5 text-right">
+                 {{define}}
+              </div>
+              <div class="col-xs-12 col-md-5 caja">
+              <input type="text" id="caja" #definicion disabled >
+            </div>
+            </div>
+        </div>
+        
+         <div class="row" >
+           
+                <div class="col-md-12 col-xs-12 col-xs-offset-4 tiempo" *ngIf="!definido" >
+                        <div class="botonPadre"
+                       >
+                        <button *ngIf="!ocultarTiempo" (click)="tiempo.empezarTiempo(tiemp);haEmpezadoTiempo()"
+                        class="btn btn-danger">
+                        TIEMPO
+                      </button>
+                        </div>
+                       
+                </div>
+                <app-tiempo *ngIf="!definido"></app-tiempo>
+            <div class="col-md-6 col-xs-12 tuDefines" *ngIf="!definido && esTiempoEmpezado && !tiempo.tiempoHaTerminado()">
+                   
+                <div class=" col-xs-12  tuDefinicionInput" >
+                        <input type="text" id="tuDefinicion" 
+                        #valor 
+                        [maxLength]="caracteres"
+                        [value]="tuDefinicion"
+                        (focus)="habilitarBoton(true)"
+                        (blur)="habilitarBoton(false)"
+                        autofocus>
+
+                </div>
+
+                <div class="col-xs-12 col-xs-offset-4 col-md-12 col-md-offset-5 botonDefinicion " >
+                        <input type="button" value="DEFINIR"
+                        [disabled]="valor.value ? botonHabilitado : !botonHabilitado"
+                            (click)="procesarRespuesta(valor.value);valor.value='';definicion.value='' ;tiempo.resetTiempo()">
+
+                </div>
+            </div>  
+            <div class="col-md-6 col-xs-12 tuDefines" *ngIf="!definido && esTiempoEmpezado && tiempo.tiempoHaTerminado()">
+                    
+                    <div class="col-xs-12  col-md-12 col-md-offset-5 botonDefinicion " >
+                            <input type="button" value="TIEMPO TERMINADO. DEFINIR OTRA PALABRA"
+                           
+                                    (click)="definicion.value='';definirPalabraSiguiente()">
+                
+                    </div>
+ 
+             </div>  
+    
+            </div>
+          
+            
+          
+        
+     </div>
+   
+
+     <div class="container coincidencias" *ngIf="definido">
+
+        <div class="row">
+            <h2 class="text-center">RESPUESTAS {{palabraActual}}</h2>
+                 <div class="col-xs-6 tuRespuesta">
+                        <div class="col-xs-12" >
+                                <h3>TU DEFINICIÓN</h3>
+                                {{auxTuDefinicion}}
+
+                        </div>
+                  
+                 </div>
+                 <div class="col-xs-6 miRespuesta" >
+                        <h3>MI DEFINICIÓN</h3>
+                     <div class="col-xs-12" *ngFor="let linea of miDefinicion">
+                            <p> {{linea}}</p>
+                     </div>
+                     
+                    
+                 </div>
+
+        </div>
+         
+
+
+                
+                     
+                     
+      
+               
+        <div class="col-xs-12 col-xs-offset-2 col-md-12 col-md-offset-5 botonCoincidencias " *ngIf="!haLlegadoAlFin">
+                <input type="button" value="DEFINIR NUEVA PALABRA"
+               
+                    (click)="definirPalabraSiguiente()">
+    
+        </div>
+        <div class="col-xs-12 col-xs-offset-2 col-md-12 col-md-offset-5 botonCoincidencias " *ngIf="haLlegadoAlFin">
+                <input type="button" value="EMPEZAR DE NUEVO"
+               
+                    (click)="empezarDeNuevo()">
+    
+        </div>
+     </div>
+   
+
+    
+
+
+
